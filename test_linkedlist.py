@@ -21,6 +21,15 @@ class LinkedListTest(unittest.TestCase):
         assert ll.tail is None
 
     def test_init_with_list(self):
+
+        ll = LinkedList(['A'])
+        assert ll.head.data == 'A'
+        assert ll.tail.data == 'A'
+
+        ll = LinkedList(['A', 'B'])
+        assert ll.head.data == 'A'
+        assert ll.tail.data == 'B'
+
         ll = LinkedList(['A', 'B', 'C'])
         assert ll.head.data == 'A'
         assert ll.tail.data == 'C'
@@ -34,6 +43,7 @@ class LinkedListTest(unittest.TestCase):
         assert ll.as_list() == ['A', 'B']
         ll.append('C')
         assert ll.as_list() == ['A', 'B', 'C']
+
 
     def test_length(self):
         ll = LinkedList()
@@ -74,6 +84,7 @@ class LinkedListTest(unittest.TestCase):
         ll.append('A')
         ll.append('B')
         ll.append('C')
+
         ll.delete('A')
         assert ll.head.data == 'B'
         assert ll.tail.data == 'C'
@@ -91,7 +102,16 @@ class LinkedListTest(unittest.TestCase):
         ll.append('A')
         ll.append('B')
         ll.append('C')
-        assert ll.find(lambda item: item == 'B') == 'B'
+        # print(ll)
+        # print 'lambda: ', ll.find(lambda item: (item == 'C'))
+        # print 'string: ', ll.find('C')
+
+        # assert ll.find('B') == 'B'
+        # assert ll.find('A') == 'A'
+        # assert ll.find('C') == 'C'
+        # assert ll.find('D') is None
+
+        assert ll.find(lambda item: (item == 'B')) == 'B'
         assert ll.find(lambda item: item < 'B') == 'A'
         assert ll.find(lambda item: item > 'B') == 'C'
         assert ll.find(lambda item: item == 'D') is None

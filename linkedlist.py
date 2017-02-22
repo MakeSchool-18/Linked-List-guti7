@@ -1,4 +1,4 @@
-#!python
+ #!python
 """ linked lists module."""
 from __future__ import print_function
 
@@ -76,14 +76,13 @@ class LinkedList(object):
         new_head.next = self.head
         self.head = new_head
 
-
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError."""
         # check for empty linked list
         if self.is_empty():
             raise ValueError('Empty Linked List.')
-        current = self.head
 
+        current = self.head
         # first node
         if current.data == item:
             self.head = current.next
